@@ -8,28 +8,42 @@ void main() {
   runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
-  
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     var mode = [darkColorScheme,lightColorScheme];
+    int dark = 0;
+    int bright = 1;
+    change(index){
+      setState(() {
+        dark != bright;
+        
+
+      });
+    }
     
     return MaterialApp(
       
       title: 'Flutter Demo',
       theme: ThemeData(
-        textTheme: TextTheme(subtitle1: GoogleFonts.damion()),
+        textTheme: TextTheme(subtitle1: GoogleFonts.singleDay(fontSize:20 )),
         useMaterial3: true,
-        colorScheme: mode[1]
+        colorScheme: mode[0]
       ),
-      home: MyHomePage(),
+      home: MyHomePage(change:change),
     );
   }
 }
  class MyHomePage extends StatefulWidget {
- const MyHomePage({Key? key}) : super(key: key);
- 
+ MyHomePage({Key? key,this.change}) : super(key: key);
+ var change;
  
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -47,6 +61,7 @@ class _MyHomePageState extends State<MyHomePage> {
   
   @override
   Widget build(BuildContext context) {
+    adasd(){}
     return Scaffold(
       
       appBar: AppBar(
@@ -75,3 +90,4 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+

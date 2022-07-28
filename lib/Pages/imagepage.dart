@@ -72,11 +72,12 @@ class _ImagePageState extends State<ImagePage> {
                         child: Text('데이터가 0개입니다'),
                       );
                     }
-                    return GridView(
+                    return OrientationBuilder(builder: ((context, orientation) {
+                      return GridView(
                       //질문: 함수부분 모름
                       gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
+                        SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: orientation == Orientation.portrait ? 2 : 3,
                         mainAxisSpacing: 10,
                         crossAxisSpacing: 10,
                       ),
@@ -92,6 +93,7 @@ class _ImagePageState extends State<ImagePage> {
                         );
                       }).toList(),
                     );
+                    }));
                   },
                 ), //질문: 이거 왜 쓰는건지?
               ),
