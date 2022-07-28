@@ -43,7 +43,7 @@ class _MyAppState extends State<MyApp> {
 }
  class MyHomePage extends StatefulWidget {
  MyHomePage({Key? key,this.change}) : super(key: key);
- var change;
+ final change;
  
   @override
   State<MyHomePage> createState() => _MyHomePageState();
