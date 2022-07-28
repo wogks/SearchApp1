@@ -16,6 +16,7 @@ class _VideoPageState extends State<VideoPage> {
   @override
   final _controller = TextEditingController();
   String _query = '';
+  
     Widget build(BuildContext context) {
     return Scaffold(
         
@@ -76,11 +77,14 @@ class _VideoPageState extends State<VideoPage> {
                         child: Text('데이터가 0개입니다'),
                       );
                     }
-                    return GridView(
+
+                    return OrientationBuilder(builder:
+                    ((context, orientation) {
+                      return GridView(
                       //질문: 함수부분 모름
                       gridDelegate:
-                          const SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
+                           SliverGridDelegateWithFixedCrossAxisCount(
+                        crossAxisCount: orientation == Orientation.portrait ? 2: 4,
                         mainAxisSpacing: 10,
                         crossAxisSpacing: 10,
                       ),
@@ -114,6 +118,8 @@ class _VideoPageState extends State<VideoPage> {
                         );
                       }).toList(),
                     );
+                    })
+                     );
                   },
                 ), //질문: 이거 왜 쓰는건지?
               ),

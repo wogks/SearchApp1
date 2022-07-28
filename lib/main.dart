@@ -14,26 +14,29 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var mode = [darkColorScheme,lightColorScheme];
-    int mo = 0;
+    
     return MaterialApp(
       
       title: 'Flutter Demo',
       theme: ThemeData(
         textTheme: TextTheme(subtitle1: GoogleFonts.damion()),
         useMaterial3: true,
-        colorScheme: mode[mo]
+        colorScheme: mode[1]
       ),
       home: MyHomePage(),
     );
   }
 }
  class MyHomePage extends StatefulWidget {
- const MyHomePage({Key? key,}) : super(key: key);
+ const MyHomePage({Key? key}) : super(key: key);
+ 
+ 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  
   int _selectedIndex = 0;
  final Pages = const [ImagePage(),VideoPage()];
  void _onItemTapped(int index) {
@@ -50,7 +53,9 @@ class _MyHomePageState extends State<MyHomePage> {
         actions: [IconButton(
           onPressed:(){
             _oItemTapped(index){
-              _selectedIndex = index;
+               setState(() {
+                 
+               });
            
             }
           },
