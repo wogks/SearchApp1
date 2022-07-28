@@ -95,13 +95,22 @@ class _VideoPageState extends State<VideoPage> {
                                   builder: (context) => VideoApp(video.videos['medium']['url'])),
                             );
                           },
-                          child: ClipRRect(
+                          child: Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              ClipRRect(
                             borderRadius: BorderRadius.circular(10),
                             child: Image.network(
                               'https://i.vimeocdn.com/video/${video.pictureId}_${video.thumbnailSize}.jpg',
                               fit: BoxFit.cover,
                             ),
                           ),
+                          const Icon(
+                                Icons.play_arrow,
+                                color: Colors.white,
+                              ),
+                            ],
+                            )
                         );
                       }).toList(),
                     );
