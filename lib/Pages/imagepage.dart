@@ -14,8 +14,10 @@ class ImagePage extends StatefulWidget {
 class _ImagePageState extends State<ImagePage> {
   final _controller = TextEditingController();
   String _query = '';
+  
   @override
   Widget build(BuildContext context) {
+    final orientation = MediaQuery.of(context).orientation;
     return Scaffold(
       body: Column(
           children: [
@@ -72,7 +74,7 @@ class _ImagePageState extends State<ImagePage> {
                         child: Text('데이터가 0개입니다'),
                       );
                     }
-                    return OrientationBuilder(builder: ((context, orientation) {
+                    
                       return GridView(
                       //질문: 함수부분 모름
                       gridDelegate:
@@ -93,7 +95,7 @@ class _ImagePageState extends State<ImagePage> {
                         );
                       }).toList(),
                     );
-                    }));
+                    ;
                   },
                 ), //질문: 이거 왜 쓰는건지?
               ),
