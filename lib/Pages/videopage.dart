@@ -77,7 +77,6 @@ class _VideoPageState extends State<VideoPage> {
 
                 return OrientationBuilder(builder: ((context, orientation) {
                   return GridView(
-                    //질문: 함수부분 모름
                     gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount:
                           orientation == Orientation.portrait ? 2 : 3,

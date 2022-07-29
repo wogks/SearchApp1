@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import '../model/videomodel.dart';
 
 class VideoApp extends StatefulWidget {
- const VideoApp(this.url, {Key? key}) : super(key: key);
+  const VideoApp(this.url, {Key? key}) : super(key: key);
   final String url;
 
   @override
@@ -33,9 +33,9 @@ class _VideoAppState extends State<VideoApp> {
         body: Center(
           child: _controller.value.isInitialized
               ? AspectRatio(
-            aspectRatio: _controller.value.aspectRatio,
-            child: VideoPlayer(_controller),
-          )
+                  aspectRatio: _controller.value.aspectRatio,
+                  child: VideoPlayer(_controller),
+                )
               : Container(),
         ),
         floatingActionButton: Opacity(
@@ -64,6 +64,7 @@ class _VideoAppState extends State<VideoApp> {
     _controller.dispose();
   }
 }
+
 class VideoApi {
   Future<List<Video>> getVideos(String query) async {
     Uri url = Uri.parse(
