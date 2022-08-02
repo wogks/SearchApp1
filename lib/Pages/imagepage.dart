@@ -59,7 +59,7 @@ class _ImagePageState extends State<ImagePage> {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: StreamBuilder<List<Picture>>(
-              stream: getImgs(_query), //_api.increase(), //질문:future부분에 뭘 쓰는건지?
+              stream: getImages2(_query), //_api.increase(), //질문:future부분에 뭘 쓰는건지?
               builder: (context, snapshot) {
                 if (snapshot.hasError) {
                   return const Center(
@@ -131,7 +131,7 @@ Future<List<Picture>> getImages(String _query) async {
   return hits.map((e) => Picture.fromjson(e)).toList();
 }
 
-Stream<List<Picture>> getImgs(String _query) {
+Stream<List<Picture>> getImages2(String _query) {
   late final StreamController<List<Picture>> controller;
   controller = StreamController<List<Picture>>(
     onListen: () async {
