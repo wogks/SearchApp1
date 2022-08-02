@@ -35,7 +35,7 @@ class _MyAppState extends State<MyApp> {
           textTheme: TextTheme(subtitle1: GoogleFonts.singleDay(fontSize: 20)),
           useMaterial3: true,
           colorScheme: mode[0]),
-      home: CounterApp(),
+      home: MyHomePage(),
     );
   }
 }
